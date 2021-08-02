@@ -12,9 +12,9 @@ Future<CanecaModel> requestBuscarCaneca(int idCaneca) async {
   if (response.statusCode == 200) {
     var caneca = CanecaModel.fromJson(jsonDecode(response.body));
     return caneca;
-  } else {
-    throw Exception("Falha na request");
   }
+
+  throw Exception("Falha na request");
 }
 
 requestAumentarCaneca(int idCaneca) async {
@@ -36,7 +36,7 @@ requestDiminuirCaneca(int idCaneca) async {
   var response = await http.post(url);
   if (response.statusCode == 200) {
     return jsonDecode(response.body);
-  } else {
-    throw Exception("Falha na request");
   }
+
+  throw Exception("Falha na request");
 }
